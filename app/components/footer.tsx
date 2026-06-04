@@ -136,7 +136,7 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-2.5 text-sm text-green-100">
                 <MapPin size={15} className="text-green-400 mt-0.5 flex-shrink-0" />
-                <span>14555 Avenue 408<br />Dinuba, CA 93618</span>
+                <span>PO Box 963<br />Dinuba, CA 93618</span>
               </li>
               <li>
                 <a
