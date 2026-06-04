@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next"
 import { CATEGORIES } from "./products/[slug]/data"
 
+export const dynamic = "force-static"
+
 const BASE = "https://www.seqhort.com"
 
 export default function sitemap(): MetadataRoute.Sitemap {
