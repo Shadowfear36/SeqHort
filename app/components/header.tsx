@@ -97,7 +97,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-gray-700 hover:text-green-700 transition-colors"
+                className="text-sm font-medium text-foreground hover:text-green-700 transition-colors"
               >
                 {link.label}
               </Link>
@@ -120,7 +120,7 @@ export default function Header() {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden p-2 rounded-md text-gray-700 hover:text-green-700 transition-colors"
+            className="md:hidden p-2 rounded-md text-foreground hover:text-green-700 transition-colors"
             onClick={() => setMenuOpen(true)}
             aria-label="Open menu"
           >
@@ -140,12 +140,12 @@ export default function Header() {
 
           {/* Drawer panel */}
           <div
-            className="relative w-[78vw] max-w-xs bg-[#F2F0EC] flex flex-col h-full shadow-2xl rounded-r-2xl"
+            className="relative w-[78vw] max-w-xs bg-background flex flex-col h-full shadow-2xl rounded-r-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close button */}
             <button
-              className="absolute top-4 right-4 p-1 text-gray-500 hover:text-gray-800"
+              className="absolute top-4 right-4 p-1 text-muted hover:text-foreground"
               onClick={() => setMenuOpen(false)}
               aria-label="Close menu"
             >
@@ -164,8 +164,8 @@ export default function Header() {
                 />
               </div>
               <div>
-                <p className="font-bold text-gray-900 leading-tight">Sequoia<br />Horticultural</p>
-                <p className="text-[10px] font-semibold tracking-widest text-gray-400 uppercase mt-0.5">Established 1982</p>
+                <p className="font-bold text-foreground leading-tight">Sequoia<br />Horticultural</p>
+                <p className="text-[10px] font-semibold tracking-widest text-muted uppercase mt-0.5">Established 1982</p>
               </div>
             </div>
 
@@ -178,7 +178,7 @@ export default function Header() {
                     key={link.href}
                     href={link.href}
                     onClick={() => setMenuOpen(false)}
-                    className="flex items-center gap-3 px-3 py-3.5 rounded-xl text-gray-700 hover:bg-green-700 hover:text-white transition-colors group"
+                    className="flex items-center gap-3 px-3 py-3.5 rounded-xl text-foreground hover:bg-green-700 hover:text-white transition-colors group"
                   >
                     <Icon size={20} className="flex-shrink-0" />
                     <span className="text-base font-medium">{link.label}</span>
@@ -190,14 +190,14 @@ export default function Header() {
               <div className="mt-4 flex flex-col gap-2 px-3">
                 <a
                   href={PHONE}
-                  className="flex items-center gap-3 py-3 text-gray-700 hover:text-green-700 transition-colors"
+                  className="flex items-center gap-3 py-3 text-foreground hover:text-green-700 transition-colors"
                 >
                   <Phone size={20} className="flex-shrink-0" />
                   <span className="text-base font-medium">Call Us</span>
                 </a>
                 <a
                   href={EMAIL}
-                  className="flex items-center gap-3 py-3 text-gray-700 hover:text-green-700 transition-colors"
+                  className="flex items-center gap-3 py-3 text-foreground hover:text-green-700 transition-colors"
                 >
                   <Mail size={20} className="flex-shrink-0" />
                   <span className="text-base font-medium">Email Us</span>
@@ -206,9 +206,9 @@ export default function Header() {
             </nav>
 
             {/* Footer */}
-            <div className="px-6 pb-6 border-t border-gray-200 pt-4">
+            <div className="px-6 pb-6 border-t border-border pt-4">
               <div className="flex items-center justify-between mb-3">
-                <span className="text-sm font-medium text-gray-500">
+                <span className="text-sm font-medium text-muted">
                   {dark ? "Dark mode" : "Light mode"}
                 </span>
                 <button
@@ -226,7 +226,7 @@ export default function Header() {
                   </span>
                 </button>
               </div>
-              <p className="text-[11px] text-gray-400">
+              <p className="text-[11px] text-muted">
                 © 1982–{new Date().getFullYear()} Sequoia Horticultural Products.
               </p>
             </div>
