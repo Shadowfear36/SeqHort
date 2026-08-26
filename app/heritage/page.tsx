@@ -65,19 +65,19 @@ export default function HeritagePage() {
         {/* Founding story */}
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <p className="text-[11px] font-bold tracking-widest text-green-700 uppercase mb-3">Our Story</p>
-            <h2 className="text-3xl font-bold text-foreground mb-5">Founded by Gary Worrell</h2>
+            <h2 className="text-3xl font-bold text-foreground mb-5">Our History</h2>
             <div className="space-y-4 text-muted leading-relaxed">
               <p>
-                Sequoia Horticultural Products was founded on two principles that still guide everything
-                we do today: <strong className="text-foreground">honesty and integrity</strong>. From day one,
-                those values have allowed us to build lasting relationships and offer genuinely competitive
-                pricing to every customer we serve.
+                Sequoia Horticultural Products was founded by Gary Worrell in 1982 based on{" "}
+                <strong className="text-foreground">honesty, integrity</strong> and extensive experience
+                with horticultural products. These same qualities are carried on by Garrett Worrell. These
+                values have allowed us to build lasting relationships and competitive pricing for every
+                customer we serve.
               </p>
               <p>
-                Based in California's Central Valley, we've grown from a local bark supplier into a trusted
-                wholesale partner for professionals across the Western United States — without ever losing
-                sight of what matters most: quality products and reliable service.
+                Based in California's Central Valley, we have grown into a trusted wholesale partner for
+                professionals across the Western United States. We have never lost sight of what matters
+                most: Competitive Pricing, Quality Products and Reliable Service!
               </p>
             </div>
           </div>
@@ -98,11 +98,15 @@ export default function HeritagePage() {
         {/* What we do */}
         <div className="bg-green-800 rounded-3xl px-8 md:px-12 py-12">
           <p className="text-[11px] font-bold tracking-widest text-green-400 uppercase mb-3">What We Do</p>
-          <h2 className="text-3xl font-bold text-white mb-4">Wholesale Horticultural Supply</h2>
+          <h2 className="text-3xl font-bold text-white mb-4">Wholesale Horticultural Products</h2>
           <p className="text-green-200 leading-relaxed max-w-2xl mb-8">
-            We supply decorative bark, wood chips, sawdust, soil amendments, and planting mixes
-            to a wide range of professionals. All of our bark and wood products are organic, renewable
-            byproducts of trees harvested responsibly.
+            We supply a wide range of horticultural products such as decorative bark, wood chips,
+            planting mixes, etc. (Click on our{" "}
+            <Link href="/products" className="underline text-white hover:text-green-100">
+              products list
+            </Link>
+            ). All of our bark products are organic and renewable by-products of trees harvested
+            responsibly.
           </p>
           <div className="flex items-center gap-2 text-sm text-green-300 font-medium">
             <Leaf size={16} className="text-green-400" />

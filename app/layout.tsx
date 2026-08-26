@@ -50,10 +50,10 @@ export const metadata: Metadata = {
       "Wholesale supplier of decorative bark, orchid bark, redwood mulch, wood chips, and soil amendments since 1982. Serving the Western United States.",
     images: [
       {
-        url: "/SplashImage.png",
+        url: "/SocialImage.png",
         width: 1200,
         height: 630,
-        alt: "Sequoia forest — Sequoia Horticultural Products, Dinuba CA",
+        alt: "Sequoia Horticultural Products, Dinuba CA",
       },
     ],
   },
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     title: "Sequoia Horticultural Products | Bulk Bark & Mulch",
     description:
       "Wholesale horticultural products since 1982. Decorative bark, redwood mulch, orchid bark, wood chips, and soil amendments for professionals.",
-    images: ["/SplashImage.png"],
+    images: ["/SocialImage.png"],
   },
   category: "Agriculture & Horticulture",
 };
