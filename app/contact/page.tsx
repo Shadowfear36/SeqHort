@@ -1,4 +1,5 @@
 import { Phone, Mail, MapPin, Clock, Printer } from "lucide-react"
+import ContactForm from "../components/contact-form"
 
 export const metadata = {
   title: "Contact Us",
@@ -112,10 +113,10 @@ export default function ContactPage() {
                   {c.email}
                 </a>
                 <a
-                  href={`mailto:${c.email}`}
+                  href={`?to=${c.name.toLowerCase()}#contact-form`}
                   className="inline-flex items-center justify-center gap-2 bg-green-700 hover:bg-green-800 text-white text-sm font-semibold px-4 py-2.5 rounded-xl transition-colors"
                 >
-                  Send Email
+                  Send Message
                 </a>
               </div>
             ))}
@@ -136,6 +137,9 @@ export default function ContactPage() {
           </div>
 
         </div>
+
+        {/* Contact form */}
+        <ContactForm />
 
         {/* Map embed placeholder */}
         <div>

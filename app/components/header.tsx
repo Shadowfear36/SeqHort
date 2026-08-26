@@ -34,7 +34,7 @@ const DESKTOP_LINKS = [
 ]
 
 const PHONE = "tel:+15595911177"
-const EMAIL = "mailto:garrett@seqhort.com"
+const EMAIL = "/contact#contact-form"
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
@@ -109,13 +109,13 @@ export default function Header() {
               <Phone size={15} />
               Call Us
             </a>
-            <a
+            <Link
               href={EMAIL}
               className="flex items-center gap-1.5 rounded-full border border-green-700 px-4 py-2 text-sm font-medium text-green-700 hover:bg-green-50 transition-colors"
             >
               <Mail size={15} />
               Email Us
-            </a>
+            </Link>
           </nav>
 
           {/* Mobile hamburger */}
@@ -195,13 +195,14 @@ export default function Header() {
                   <Phone size={20} className="flex-shrink-0" />
                   <span className="text-base font-medium">Call Us</span>
                 </a>
-                <a
+                <Link
                   href={EMAIL}
+                  onClick={() => setMenuOpen(false)}
                   className="flex items-center gap-3 py-3 text-foreground hover:text-green-700 transition-colors"
                 >
                   <Mail size={20} className="flex-shrink-0" />
                   <span className="text-base font-medium">Email Us</span>
-                </a>
+                </Link>
               </div>
             </nav>
 

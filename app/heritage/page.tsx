@@ -156,18 +156,18 @@ export default function HeritagePage() {
             >
               <Phone size={15} /> Call Us
             </a>
-            <a
-              href="mailto:garrett@seqhort.com"
+            <Link
+              href="/contact?to=garrett#contact-form"
               className="inline-flex items-center gap-2 border border-white/40 text-white font-semibold px-6 py-3 rounded-xl hover:bg-white/10 transition-colors text-sm"
             >
               <Mail size={15} /> Email Garrett
-            </a>
-            <a
-              href="mailto:donna@seqhort.com"
+            </Link>
+            <Link
+              href="/contact?to=donna#contact-form"
               className="inline-flex items-center gap-2 border border-white/40 text-white font-semibold px-6 py-3 rounded-xl hover:bg-white/10 transition-colors text-sm"
             >
               <Mail size={15} /> Email Donna
-            </a>
+            </Link>
           </div>
         </div>
 

@@ -129,12 +129,12 @@ export default async function ProductCategoryPage({
             >
               <Phone size={15} /> (559) 591-1177
             </a>
-            <a
-              href="mailto:info@sequoiahort.com"
+            <Link
+              href="/contact#contact-form"
               className="inline-flex items-center gap-2 border border-white/40 text-white font-semibold px-5 py-2.5 rounded-xl hover:bg-white/10 transition-colors text-sm"
             >
               <Mail size={15} /> Email Us
-            </a>
+            </Link>
           </div>
         </div>
       </div>
