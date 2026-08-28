@@ -128,8 +128,10 @@ export default function HeritagePage() {
                 {c}
               </span>
             ))}
+            <span className="inline-flex items-center gap-2 bg-green-700 text-white text-sm font-semibold px-4 py-2 rounded-full">
+              and more!
+            </span>
           </div>
-          <p className="text-muted text-sm mt-4">...and more</p>
         </div>
 
         {/* Contact CTA */}
