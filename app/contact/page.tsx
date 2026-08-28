@@ -119,7 +119,7 @@ export default function ContactPage() {
                     className="inline-flex items-center gap-2 text-sm text-green-700 hover:text-green-800 font-medium transition-colors"
                   >
                     <Phone size={14} />
-                    {c.cell} (cell)
+                    Cell: {c.cell}
                   </a>
                 )}
                 <a

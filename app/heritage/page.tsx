@@ -150,7 +150,7 @@ export default function HeritagePage() {
               </div>
               <div className="flex items-center gap-2">
                 <Phone size={14} className="text-green-400" />
-                Garrett's Cell: (559) 284-0280
+                Garrett: (559) 284-0280
               </div>
             </div>
           </div>
