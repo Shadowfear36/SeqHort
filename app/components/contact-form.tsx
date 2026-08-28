@@ -8,7 +8,7 @@ type Status = "idle" | "sending" | "success" | "error"
 const RECIPIENT_OPTIONS = [
   { value: "general", label: "General Inquiry" },
   { value: "garrett", label: "Garrett — Sales & Orders" },
-  { value: "donna", label: "Donna — General Inquiries" },
+  { value: "meliza", label: "Meliza — General Inquiries" },
 ]
 
 export default function ContactForm() {

@@ -8,7 +8,7 @@ export const metadata = {
   alternates: { canonical: "https://www.seqhort.com/contact" },
   openGraph: {
     title: "Contact Us | Sequoia Horticultural Products",
-    description: "Call (559) 591-1177 or email us. Mon–Fri 8:00 AM – 4:30 PM. Located in Dinuba, CA.",
+    description: "Call (559) 591-1177 or email us. Mon–Fri 7:00 AM – 5:00 PM. Located in Dinuba, CA.",
     url: "https://www.seqhort.com/contact",
   },
 }
@@ -35,7 +35,7 @@ const CONTACT_DETAILS = [
   {
     icon: Clock,
     label: "Hours",
-    value: "Mon–Fri: 8:00 AM – 4:30 PM",
+    value: "Mon–Fri: 7:00 AM – 5:00 PM",
     href: null,
   },
 ]
@@ -45,11 +45,12 @@ const CONTACTS = [
     name: "Garrett",
     role: "Sales & Orders",
     email: "garrett@seqhort.com",
+    cell: "(559) 284-0280",
   },
   {
-    name: "Donna",
+    name: "Meliza",
     role: "General Inquiries",
-    email: "donna@seqhort.com",
+    email: "meliza@seqhort.com",
   },
 ]
 
@@ -112,6 +113,15 @@ export default function ContactPage() {
                   <Mail size={14} />
                   {c.email}
                 </a>
+                {c.cell && (
+                  <a
+                    href={`tel:${c.cell.replace(/[^\d+]/g, "")}`}
+                    className="inline-flex items-center gap-2 text-sm text-green-700 hover:text-green-800 font-medium transition-colors"
+                  >
+                    <Phone size={14} />
+                    {c.cell} (cell)
+                  </a>
+                )}
                 <a
                   href={`?to=${c.name.toLowerCase()}#contact-form`}
                   className="inline-flex items-center justify-center gap-2 bg-green-700 hover:bg-green-800 text-white text-sm font-semibold px-4 py-2.5 rounded-xl transition-colors"

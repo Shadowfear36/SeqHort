@@ -9,8 +9,8 @@ interface ContactContext {
 
 const RECIPIENTS: Record<string, string[]> = {
   garrett: ["garrett@seqhort.com"],
-  donna: ["donna@seqhort.com"],
-  general: ["garrett@seqhort.com", "donna@seqhort.com"],
+  meliza: ["meliza@seqhort.com"],
+  general: ["garrett@seqhort.com", "meliza@seqhort.com"],
 }
 
 function isValidEmail(value: string): boolean {

@@ -117,7 +117,7 @@ export default function HeritagePage() {
         {/* Who we serve */}
         <div>
           <p className="text-[11px] font-bold tracking-widest text-green-700 uppercase mb-3">Who We Serve</p>
-          <h2 className="text-3xl font-bold text-foreground mb-8">Built for Professionals</h2>
+          <h2 className="text-3xl font-bold text-foreground mb-8">Serving Many Entities</h2>
           <div className="flex flex-wrap gap-3">
             {CUSTOMERS.map((c) => (
               <span
@@ -129,6 +129,7 @@ export default function HeritagePage() {
               </span>
             ))}
           </div>
+          <p className="text-muted text-sm mt-4">...and more</p>
         </div>
 
         {/* Contact CTA */}
@@ -147,6 +148,10 @@ export default function HeritagePage() {
                 <Phone size={14} className="text-green-400" />
                 (559) 591-1177 &nbsp;·&nbsp; Fax: (559) 591-1205
               </div>
+              <div className="flex items-center gap-2">
+                <Phone size={14} className="text-green-400" />
+                Garrett's Cell: (559) 284-0280
+              </div>
             </div>
           </div>
           <div className="flex flex-col gap-3 min-w-fit">
@@ -163,10 +168,10 @@ export default function HeritagePage() {
               <Mail size={15} /> Email Garrett
             </Link>
             <Link
-              href="/contact?to=donna#contact-form"
+              href="/contact?to=meliza#contact-form"
               className="inline-flex items-center gap-2 border border-white/40 text-white font-semibold px-6 py-3 rounded-xl hover:bg-white/10 transition-colors text-sm"
             >
-              <Mail size={15} /> Email Donna
+              <Mail size={15} /> Email Meliza
             </Link>
           </div>
         </div>
