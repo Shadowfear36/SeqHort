@@ -5,6 +5,7 @@ export type Product = {
   image: string
   alt: string
   options?: string[]
+  species?: string[]
 }
 
 export type ProductCategory = {
@@ -27,6 +28,7 @@ export const CATEGORIES: ProductCategory[] = [
     products: [
       {
         name: "Mini Decorative Bark",
+        species: ["Fir"],
         size: '1/8" – 3/8"',
         description:
           "Flat-screened fir bark nuggets containing very little wood. Ideal for fine-detail planting beds and tight spaces.",
@@ -36,6 +38,7 @@ export const CATEGORIES: ProductCategory[] = [
       },
       {
         name: "Small Decorative Bark",
+        species: ["Fir"],
         size: '1/4" – 3/4"',
         description: "Versatile fir bark suitable for residential beds and borders.",
         image: "/products/small-500.jpg",
@@ -44,6 +47,7 @@ export const CATEGORIES: ProductCategory[] = [
       },
       {
         name: "Medium Decorative Bark",
+        species: ["Fir"],
         size: '3/4" – 1.5"',
         description: "The most popular all-purpose decorative bark for general landscaping applications.",
         image: "/products/medium-500.jpg",
@@ -52,6 +56,7 @@ export const CATEGORIES: ProductCategory[] = [
       },
       {
         name: "Large Decorative Bark",
+        species: ["Fir", "Pine"],
         size: '2" – 5"',
         description: "Bold, statement-making fir or pine bark for expansive landscape beds.",
         image: "/products/largedeco-500.jpg",
@@ -60,6 +65,7 @@ export const CATEGORIES: ProductCategory[] = [
       },
       {
         name: "Walk On Bark",
+        species: ["Fir"],
         size: '1" – 3"',
         description:
           "An economical pathway material with a pleasant forest fragrance. Great for trails and walkways.",
@@ -79,6 +85,7 @@ export const CATEGORIES: ProductCategory[] = [
     products: [
       {
         name: "Small Orchid Bark",
+        species: ["Fir", "Pine"],
         size: '1/8" – 1/4"',
         description:
           "Fine-grade fir or pine bark ideal for young orchids, small epiphytes, and high-moisture potting mixes.",
@@ -88,6 +95,7 @@ export const CATEGORIES: ProductCategory[] = [
       },
       {
         name: "Medium Orchid Bark",
+        species: ["Fir", "Pine"],
         size: '1/4" – 3/8"',
         description:
           "The standard choice for mature orchids and commercial epiphytic cultivation. Excellent drainage and longevity.",
@@ -107,6 +115,7 @@ export const CATEGORIES: ProductCategory[] = [
     products: [
       {
         name: "Single Grind Redwood Bark (Gorilla Hair)",
+        species: ["Redwood"],
         size: '1" – 3" (up to 6")',
         description:
           "Fibrous, stringy, dark red-colored product. Knits together to resist blowing and washing. Our most popular redwood mulch.",
@@ -116,6 +125,7 @@ export const CATEGORIES: ProductCategory[] = [
       },
       {
         name: "Double Grind Redwood Bark",
+        species: ["Redwood"],
         size: '0" – 2"',
         description:
           "A finer alternative to Gorilla Hair with the same natural decay resistance and iconic California color palette.",
@@ -125,6 +135,7 @@ export const CATEGORIES: ProductCategory[] = [
       },
       {
         name: "Triple Grind Redwood Bark (Ligna Peat)",
+        species: ["Redwood"],
         size: '0" – 1/4"',
         description:
           "Finely-ground redwood bark that serves as an organic, sustainable alternative to sphagnum peat moss.",
@@ -144,6 +155,7 @@ export const CATEGORIES: ProductCategory[] = [
     products: [
       {
         name: "Redwood Wood Chips",
+        species: ["Redwood"],
         size: '2" – 4"',
         description: "Suitable for pneumatic application. Natural redwood color and decay resistance.",
         image: "/products/rw-chips-500.jpg",
@@ -203,6 +215,7 @@ export const CATEGORIES: ProductCategory[] = [
     products: [
       {
         name: "Sawdust",
+        species: ["Fir", "Pine", "Cedar", "Redwood"],
         size: '0" – 1/4"',
         description:
           "Fir, pine, cedar, or redwood sawdust. Treated form available for specialized applications.",
@@ -221,6 +234,7 @@ export const CATEGORIES: ProductCategory[] = [
       },
       {
         name: "Shadust",
+        species: ["Fir", "Pine", "Cedar"],
         size: '0" – 3/4"+',
         description:
           "A blend of mixed shavings and sawdust. Available in fir, pine, or cedar. Economical and versatile.",
@@ -240,6 +254,7 @@ export const CATEGORIES: ProductCategory[] = [
     products: [
       {
         name: '0-1/8" Bark Fines',
+        species: ["Fir"],
         size: '0" – 1/8"',
         description:
           "Fine fir particles for soil amendment in nurseries and greenhouses. Treated form available.",
@@ -249,6 +264,7 @@ export const CATEGORIES: ProductCategory[] = [
       },
       {
         name: '0-1/4" Bark Fines',
+        species: ["Fir", "Pine"],
         size: '0" – 1/4"',
         description: "Fir and pine fines available fresh, aged, or treated to suit any soil amendment need.",
         image: "/products/0-q-aged-500.jpg",
@@ -257,6 +273,7 @@ export const CATEGORIES: ProductCategory[] = [
       },
       {
         name: "Turf-n-Tee",
+        species: ["Fir", "Pine"],
         size: '0" – 1/8"',
         description:
           "Fir or pine treated with iron, nitrogen, and wetting agent. Designed for turf and golf course applications.",
@@ -266,6 +283,7 @@ export const CATEGORIES: ProductCategory[] = [
       },
       {
         name: "Treated Forest Humus",
+        species: ["Fir", "Pine"],
         size: '0" – 1/4"',
         description: "Fir or pine with performance additives for enhanced soil conditioning.",
         image: "/products/deck-500.jpg",

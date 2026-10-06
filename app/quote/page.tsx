@@ -1,35 +1,16 @@
 "use client"
 
 import { useState } from "react"
-import { Send, RotateCcw, Leaf } from "lucide-react"
+import { Send, RotateCcw, Leaf, Plus, X } from "lucide-react"
+import { CATEGORIES, type Product } from "../products/[slug]/data"
 
-const PRODUCTS = [
-  "Decorative Bark — Mini (1/8\" – 3/8\")",
-  "Decorative Bark — Small (1/4\" – 3/4\")",
-  "Decorative Bark — Medium (3/4\" – 1.5\")",
-  "Decorative Bark — Large (2\" – 5\")",
-  "Decorative Bark — Walk On (1\" – 3\")",
-  "Orchid Bark — Small (1/8\" – 1/4\")",
-  "Orchid Bark — Medium (1/4\" – 3/8\")",
-  "Redwood — Gorilla Hair (Single Grind)",
-  "Redwood — Double Grind",
-  "Redwood — Triple Grind (Ligna Peat)",
-  "Wood Chips — Redwood",
-  "Wood Chips — White",
-  "Wood Chips — Certified Playground",
-  "Wood Chips — 1/4\" Nursery",
-  "Wood Chips — 1/4\"–3/4\"",
-  "Wood Chips — Colored",
-  "Shavings & Sawdust — Sawdust",
-  "Shavings & Sawdust — Shavings",
-  "Shavings & Sawdust — Shadust",
-  "Fines & Humus — 0-1/8\" Bark Fines",
-  "Fines & Humus — 0-1/4\" Bark Fines",
-  "Fines & Humus — Turf-n-Tee",
-  "Fines & Humus — Treated Forest Humus",
-  "Fines & Humus — Black Humus",
-  "Fines & Humus — Sequoia Planting Mix",
-]
+type LineItem = { product: string; species: string }
+
+const productLabel = (c: { name: string }, p: Product) => `${c.name} — ${p.name} (${p.size})`
+
+const PRODUCTS = new Map(
+  CATEGORIES.flatMap((c) => c.products.map((p) => [productLabel(c, p), p] as const))
+)
 
 const empty = {
   name: "",
@@ -39,7 +20,7 @@ const empty = {
   email: "",
   jobsite: "",
   shipTo: "",
-  products: [] as string[],
+  products: [] as LineItem[],
   quantity: "",
   dateRequired: "",
   notes: "",
@@ -47,19 +28,38 @@ const empty = {
 
 export default function QuotePage() {
   const [form, setForm] = useState(empty)
+  const [pick, setPick] = useState<LineItem>({ product: "", species: "" })
 
   const [submitted, setSubmitted] = useState(false)
 
   const set = (field: string, value: string) =>
     setForm((f) => ({ ...f, [field]: value }))
 
-  const toggleProduct = (p: string) =>
-    setForm((f) => ({
-      ...f,
-      products: f.products.includes(p)
-        ? f.products.filter((x) => x !== p)
-        : [...f.products, p],
-    }))
+  const pickSpecies = PRODUCTS.get(pick.product)?.species ?? []
+
+  const selectProduct = (product: string) => {
+    const species = PRODUCTS.get(product)?.species ?? []
+    setPick({ product, species: species.length === 1 ? species[0] : "" })
+  }
+
+  const canAdd =
+    pick.product !== "" &&
+    (pickSpecies.length === 0 || pick.species !== "") &&
+    !form.products.some((x) => x.product === pick.product && x.species === pick.species)
+
+  const addProduct = () => {
+    if (!canAdd) return
+    setForm((f) => ({ ...f, products: [...f.products, pick] }))
+    setPick({ product: "", species: "" })
+  }
+
+  const removeProduct = (i: number) =>
+    setForm((f) => ({ ...f, products: f.products.filter((_, j) => j !== i) }))
+
+  const clear = () => {
+    setForm(empty)
+    setPick({ product: "", species: "" })
+  }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -79,7 +79,7 @@ export default function QuotePage() {
             Thank you! We'll review your request and get back to you with pricing as soon as possible.
           </p>
           <button
-            onClick={() => { setForm(empty); setSubmitted(false) }}
+            onClick={() => { clear(); setSubmitted(false) }}
             className="inline-flex items-center gap-2 bg-green-700 hover:bg-green-800 text-white font-semibold px-6 py-3 rounded-xl transition-colors"
           >
             Submit Another Request
@@ -145,27 +145,72 @@ export default function QuotePage() {
           {/* Products */}
           <div>
             <h2 className="text-lg font-bold text-foreground mb-1">Product(s) of Interest <span className="text-green-700">*</span></h2>
-            <p className="text-sm text-muted mb-5">Select all that apply.</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-              {PRODUCTS.map((p) => {
-                const checked = form.products.includes(p)
-                return (
-                  <button
-                    type="button"
-                    key={p}
-                    onClick={() => toggleProduct(p)}
-                    className={`flex items-center gap-3 px-4 py-3 rounded-xl border text-left text-sm font-medium transition-colors ${
-                      checked
-                        ? "bg-green-700 border-green-700 text-white"
-                        : "bg-surface border-border text-foreground hover:border-green-600"
-                    }`}
-                  >
-                    <Leaf size={13} className={checked ? "text-green-300" : "text-green-600"} />
-                    {p}
-                  </button>
-                )
-              })}
+            <p className="text-sm text-muted mb-5">Choose a product and species, then add it. Repeat for each product you need.</p>
+            <div className="grid grid-cols-1 md:grid-cols-[1fr_12rem_auto] gap-4 items-end">
+              <Field label="Product">
+                <select value={pick.product} onChange={e => selectProduct(e.target.value)} className={input}>
+                  <option value="">Select a product…</option>
+                  {CATEGORIES.map((c) => (
+                    <optgroup key={c.slug} label={c.name}>
+                      {c.products.map((p) => {
+                        const label = productLabel(c, p)
+                        return <option key={label} value={label}>{p.name} ({p.size})</option>
+                      })}
+                    </optgroup>
+                  ))}
+                </select>
+              </Field>
+              <Field label="Species">
+                <select
+                  value={pick.species}
+                  onChange={e => setPick((p) => ({ ...p, species: e.target.value }))}
+                  disabled={pickSpecies.length <= 1}
+                  className={input + " disabled:opacity-60"}
+                >
+                  {pickSpecies.length === 0 ? (
+                    <option value="">{pick.product ? "Mixed / N/A" : "—"}</option>
+                  ) : (
+                    <>
+                      {pickSpecies.length > 1 && <option value="">Select species…</option>}
+                      {pickSpecies.map((s) => <option key={s} value={s}>{s}</option>)}
+                    </>
+                  )}
+                </select>
+              </Field>
+              <button
+                type="button"
+                onClick={addProduct}
+                disabled={!canAdd}
+                className="inline-flex items-center justify-center gap-2 bg-green-700 hover:bg-green-800 disabled:opacity-40 disabled:cursor-not-allowed text-white font-semibold px-5 py-3 rounded-xl transition-colors text-sm"
+              >
+                <Plus size={16} /> Add
+              </button>
             </div>
+
+            {form.products.length > 0 && (
+              <ul className="mt-5 space-y-2">
+                {form.products.map((item, i) => (
+                  <li
+                    key={`${item.product}|${item.species}`}
+                    className="flex items-center gap-3 px-4 py-3 rounded-xl border border-green-700 bg-green-700 text-white text-sm font-medium"
+                  >
+                    <Leaf size={13} className="text-green-300 shrink-0" />
+                    <span className="flex-1">
+                      {item.product}
+                      {item.species && <span className="text-green-200"> — {item.species}</span>}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => removeProduct(i)}
+                      aria-label={`Remove ${item.product}`}
+                      className="text-green-200 hover:text-white"
+                    >
+                      <X size={16} />
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
 
           {/* Order details */}
@@ -199,7 +244,7 @@ export default function QuotePage() {
             </button>
             <button
               type="button"
-              onClick={() => setForm(empty)}
+              onClick={clear}
               className="inline-flex items-center gap-2 border border-border text-muted hover:text-foreground px-4 py-3.5 rounded-xl transition-colors text-sm"
             >
               <RotateCcw size={15} /> Clear
